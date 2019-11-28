@@ -8,23 +8,27 @@ class FrequencyList
 {
 public static void main(String args[]) throws Exception
 {
+//Read from console for file
 Console con = System.console();
 String str;
 int i=0;
 
 HashMap map = new HashMap();
 HashSet set = new HashSet();
-//Here we will enter lyrics.txt
+
+//Here we will enter lyrics.txt for our file
 System.out.println("enter file name : ");
-//Read the file
+//Read the file and read the first line
 str = con.readLine();
+//Find our file
 FileInputStream find = new FileInputStream(str);
 
-int ch;
+int chi;
 String string=new String();
-while((ch=find.read())!=-1)
+//Read the lines and divide words by finding spaces
+while((chi=find.read())!=-1)
 {
-string+=(char)ch+"";
+string+=(char)chi+"";
 }
 StringTokenizer st = new StringTokenizer(string);
 while(st.hasMoreTokens())
@@ -35,14 +39,13 @@ set.add(s);
 i++;
 }
 Iterator iter = set.iterator();
-System.out.println("output of the word frequency list: ");
+System.out.println("Output: ");
 while(iter.hasNext())
 {
 String str1;
 int count=0;
 
 str1=(String)iter.next();
-
 
 for(int j=0; j<i ; j++)
 {
